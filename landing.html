@@ -272,6 +272,9 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
 /* real logo icons */
 .sq-logo{width:22px;height:22px;border-radius:6px;flex:none;object-fit:contain}
 .il .sq-logo{width:18px;height:18px;border-radius:5px}
+
+/* star decoration */
+.star-deco{display:inline-block;width:.7em;height:.7em;vertical-align:middle;background:currentColor;clip-path:polygon(50% 0%,65% 35%,100% 50%,65% 65%,50% 100%,35% 65%,0% 50%,35% 35%)}
 /* yellow ё dots */
 .yo{position:relative;display:inline-block}
 .yo::after{content:'';position:absolute;width:.09em;height:.09em;border-radius:50%;background:var(--gold);top:.0em;left:calc(50% - .14em);box-shadow:.2em 0 0 var(--gold);pointer-events:none}
@@ -550,7 +553,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
           <button class="btn btn-brand" type="submit" data-i18n="w_btn">Записаться →</button>
         </form>
         <div class="fine" data-i18n="w_fine">Без спама. Напишем только когда откроем доступ. esep.kz</div>
-        <div class="hand" data-i18n="w_hand">налоги — это не ваша работа <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M8 0l2.35 5.65L16 8l-5.65 2.35L8 16l-2.35-5.65L0 8l5.65-2.35z"/></svg></div>
+        <div class="hand" data-i18n="w_hand">налоги — это не ваша работа <span class='star-deco'></span></div>
       </div>
     </div>
   </div>
@@ -660,7 +663,7 @@ const KZ={
   q4:"Esep қандай банктермен және жүйелермен жұмыс істейді?",a4:"Kaspi, Halyk, BCC және Forte — Open Banking арқылы, Kaspi Магазин, Wildberries KZ және Ozon KZ маркетплейстері, ОФД-мен онлайн кассалар, ЕСУТД және ИС МПТ. Интеграциялар тізімі кеңейіп жатыр.",
   q5:"Сервис қай тілде жұмыс істейді?",a5:"Толығымен орысша және қазақша — интерфейс те, AI-көмекші де. Кез келген уақытта ауыстыра аласыз.",
   w_eye:"Ерте қол жеткізу",w_h2:"Күту тізімінен орын алыңыз",w_p:"Алғашқы 100 кәсіпкерге — 3 ай тегін және жеке онбординг. Орнына адал пікір сұраймыз.",
-  w_ph:"E-mail немесе телефон",w_btn:"Тіркелу →",w_fine:"Спамсыз. Тек қол жеткізу ашылғанда жазамыз. esep.kz",w_hand:"салық — сіздің жұмысыңыз емес <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M8 0l2.35 5.65L16 8l-5.65 2.35L8 16l-2.35-5.65L0 8l5.65-2.35z"/></svg>",
+  w_ph:"E-mail немесе телефон",w_btn:"Тіркелу →",w_fine:"Спамсыз. Тек қол жеткізу ашылғанда жазамыз. esep.kz",w_hand:"салық — сіздің жұмысыңыз емес <span class='star-deco'></span>",
   ft_ab:"Қазақстандағы бизнес-есептілікке арналған AI-автопилот. Салық, ЭСФ, бухгалтерия және таңбалау — бір платформада.",
   ft_c1:"Өнім",ft_intg:"Интеграциялар",ft_c2:"Компания",ft_about:"Біз туралы",ft_contact:"Байланыс",
   ft_c3:"Қолдау",ft_sec:"Қауіпсіздік",ft_docs:"Құжаттама",
