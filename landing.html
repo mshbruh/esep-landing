@@ -702,14 +702,15 @@ function goldYo(root){
   nodes.forEach(n=>{
     if(!/[ёЁөӨүҮ]/.test(n.textContent))return;
     if(n.parentElement&&n.parentElement.classList.contains('yo'))return;
-    const parts=n.textContent.split(/([ёЁ])/);
+    const parts=n.textContent.split(/([ёЁөӨүҮ])/);
     if(parts.length<2)return;
+    const map={'ё':'е','Ё':'Е','ө':'о','Ө':'О','ү':'у','Ү':'У'};
     const frag=document.createDocumentFragment();
     parts.forEach(p=>{
-      if(p==='ё'||p==='Ё'){
+      if(map[p]){
         const s=document.createElement('span');
         s.className='yo';
-        s.textContent=p==='ё'?'е':'Е';
+        s.textContent=map[p];
         frag.appendChild(s);
       }else if(p){
         frag.appendChild(document.createTextNode(p));
