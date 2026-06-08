@@ -696,7 +696,7 @@ document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()
 function goldYo(root){
   if(!root)root=document.body;
   document.querySelectorAll('.yo').forEach(s=>{s.replaceWith(document.createTextNode(s.textContent))});
-  const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement&&(n.parentElement.tagName==='SCRIPT'||n.parentElement.tagName==='STYLE')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
   const nodes=[];
   while(walk.nextNode())nodes.push(walk.currentNode);
   nodes.forEach(n=>{
