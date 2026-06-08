@@ -278,6 +278,8 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
 /* yellow ё dots */
 .yo{position:relative}
 .yo::after{content:'';position:absolute;width:.16em;height:.16em;border-radius:150%;background:var(--gold);top:.23em;left:calc(50% - .17em);box-shadow:.2em 0 0 var(--gold);pointer-events:none}
+.yi{position:relative}
+.yi::after{content:'';position:absolute;width:.18em;height:.18em;border-radius:50%;background:var(--gold);top:.05em;left:calc(50% - .09em);pointer-events:none}
 </style>
 </head>
 <body>
@@ -695,26 +697,21 @@ document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()
 // Yellow dots on ё
 function goldYo(root){
   if(!root)root=document.body;
-  document.querySelectorAll('.yo').forEach(s=>{s.replaceWith(document.createTextNode(s.textContent))});
+  document.querySelectorAll('.yo,.yi').forEach(s=>{s.replaceWith(document.createTextNode(s.textContent))});
   const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement&&(n.parentElement.tagName==='SCRIPT'||n.parentElement.tagName==='STYLE')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
   const nodes=[];
   while(walk.nextNode())nodes.push(walk.currentNode);
+  const yoMap={'ё':'е','Ё':'Е'};
   nodes.forEach(n=>{
-    if(!/[ёЁөӨүҮ]/.test(n.textContent))return;
-    if(n.parentElement&&n.parentElement.classList.contains('yo'))return;
-    const parts=n.textContent.split(/([ёЁөӨүҮ])/);
+    if(!/[ёЁіІ]/.test(n.textContent))return;
+    if(n.parentElement&&(n.parentElement.classList.contains('yo')||n.parentElement.classList.contains('yi')))return;
+    const parts=n.textContent.split(/([ёЁіІ])/);
     if(parts.length<2)return;
-    const map={'ё':'е','Ё':'Е','ө':'о','Ө':'О','ү':'у','Ү':'У'};
     const frag=document.createDocumentFragment();
     parts.forEach(p=>{
-      if(map[p]){
-        const s=document.createElement('span');
-        s.className='yo';
-        s.textContent=map[p];
-        frag.appendChild(s);
-      }else if(p){
-        frag.appendChild(document.createTextNode(p));
-      }
+      if(yoMap[p]){const s=document.createElement('span');s.className='yo';s.textContent=yoMap[p];frag.appendChild(s);}
+      else if(p==='і'||p==='І'){const s=document.createElement('span');s.className='yi';s.textContent=p;frag.appendChild(s);}
+      else if(p){frag.appendChild(document.createTextNode(p));}
     });
     n.parentNode.replaceChild(frag,n);
   });
