@@ -583,13 +583,13 @@ const logos=[
   ['Halyk',null,'assets/logo_halyk.webp'],
   ['BCC',null,'assets/logo_bcc.webp'],
   ['Forte',null,'assets/logo_forte.webp'],
-  ['КГД','#0b1a24','К'],
+  ['КГД',null,'assets/logo_kgd.webp'],
   ['Kaspi Магазин',null,'assets/logo_kaspi.webp'],
   ['Wildberries KZ',null,'assets/logo_wb.webp'],
   ['Ozon KZ',null,'assets/logo_ozon.webp'],
-  ['ИС МПТ','#1aa86a','М'],
-  ['ОФД','#f5b53d','Ф'],
-  ['ЕСУТД','#0a8597','Е']
+  ['ИС МПТ',null,'assets/logo_ismpt.webp'],
+  ['ОФД',null,'assets/logo_ofd.webp'],
+  ['ЕСУТД',null,'assets/logo_esutd.webp']
 ];
 const track=document.getElementById('logoTrack');
 const make=()=>logos.map(([n,c,l])=>{
@@ -695,11 +695,12 @@ document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()
 // Yellow dots on ё
 function goldYo(root){
   if(!root)root=document.body;
+  document.querySelectorAll('.yo').forEach(s=>{s.replaceWith(document.createTextNode(s.textContent))});
   const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
   const nodes=[];
   while(walk.nextNode())nodes.push(walk.currentNode);
   nodes.forEach(n=>{
-    if(!/[ёЁ]/.test(n.textContent))return;
+    if(!/[ёЁөӨүҮ]/.test(n.textContent))return;
     if(n.parentElement&&n.parentElement.classList.contains('yo'))return;
     const parts=n.textContent.split(/([ёЁ])/);
     if(parts.length<2)return;
