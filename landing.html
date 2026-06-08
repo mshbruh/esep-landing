@@ -58,7 +58,7 @@ header.scrolled{border-color:var(--line);background:rgba(255,255,255,.94)}
 .badge .pip{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(245,181,61,.25)}
 .hero h1{font-size:clamp(38px,5.4vw,62px);margin:22px 0 0}
 .hero h1 .u{color:var(--brand-deep);position:relative;white-space:nowrap}
-.hero h1 .u::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.13em;background:var(--gold);opacity:.55;border-radius:3px}
+/* underline removed */
 .hero .sub{font-size:18.5px;color:var(--muted);max-width:510px;margin:22px 0 0}
 .hero-cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;align-items:center}
 .hero-trust{display:flex;gap:26px;margin-top:34px;flex-wrap:wrap}
@@ -207,11 +207,11 @@ header.scrolled{border-color:var(--line);background:rgba(255,255,255,.94)}
 
 .faq{max-width:780px;margin:48px auto 0}
 .qa{border-bottom:1px solid var(--line)}
-.qa summary{cursor:pointer;list-style:none;padding:22px 4px;display:flex;justify-content:space-between;align-items:center;gap:18px;font-family:var(--display);font-weight:600;font-size:18px}
-.qa summary::-webkit-details-marker{display:none}
-.qa summary .pm{width:26px;height:26px;border-radius:8px;border:1px solid var(--line-2);display:grid;place-items:center;flex:none;transition:.25s;color:var(--brand-deep);font-size:18px}
-.qa[open] summary .pm{transform:rotate(45deg);background:var(--brand);color:#fff;border-color:var(--brand)}
-.qa .ans{padding:0 4px 22px;color:var(--muted);font-size:15.5px;max-width:680px}
+.qa button{width:100%;background:none;border:none;color:var(--ink);text-align:left;cursor:pointer;padding:24px 4px;font-family:var(--display);font-weight:600;font-size:18px;display:flex;justify-content:space-between;align-items:center;gap:18px;letter-spacing:-.01em}
+.qa .ar{flex:none;width:28px;height:28px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;transition:transform .3s,background .25s,border-color .25s;color:var(--brand-deep);font-size:18px}
+.qa.open .ar{transform:rotate(45deg);background:var(--brand);color:#fff;border-color:var(--brand)}
+.qa .ans{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--muted);font-size:15.5px}
+.qa .ans p{padding:0 4px 24px;max-width:680px;margin:0}
 
 .final{background:linear-gradient(180deg,rgba(6,28,34,.72),rgba(7,20,28,.82)),url("assets/bg_final.webp") center/cover no-repeat #07141c;color:#fff;border-radius:28px;padding:74px 52px;text-align:center;position:relative;overflow:hidden}
 .final::before{content:"";position:absolute;inset:0;background:radial-gradient(680px 360px at 50% -10%,rgba(15,176,196,.35),transparent 62%)}
@@ -267,6 +267,14 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
   .foot{grid-template-columns:1fr}
   .app-body{grid-template-columns:1fr}.app-side{display:none}
 }
+
+
+/* real logo icons */
+.sq-logo{width:22px;height:22px;border-radius:6px;flex:none;object-fit:contain}
+.il .sq-logo{width:18px;height:18px;border-radius:5px}
+/* yellow ё dots */
+.yo{position:relative;display:inline-block}
+.yo::after{content:'';position:absolute;width:.09em;height:.09em;border-radius:50%;background:var(--gold);top:.0em;left:calc(50% - .14em);box-shadow:.2em 0 0 var(--gold);pointer-events:none}
 </style>
 </head>
 <body>
@@ -302,9 +310,9 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
         <a class="btn btn-ghost btn-lg" href="#how" data-i18n="h_cta2">Посмотреть, как работает</a>
       </div>
       <div class="hero-trust">
-        <div class="t"><span class="ic">🏦</span><span><b>Kaspi · Halyk · BCC</b><br><span data-i18n="h_t1">подключение по Open Banking</span></span></div>
-        <div class="t"><span class="ic">📑</span><span><b>910 · 300 · 100 · 200</b><br><span data-i18n="h_t2">формы считаются сами</span></span></div>
-        <div class="t"><span class="ic">🛡️</span><span><b data-i18n="h_t3b">API КГД</b><br><span data-i18n="h_t3">сдача в один клик</span></span></div>
+        <div class="t"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg></span><span><b>Kaspi · Halyk · BCC</b><br><span data-i18n="h_t1">подключение по Open Banking</span></span></div>
+        <div class="t"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></span><span><b>910 · 300 · 100 · 200</b><br><span data-i18n="h_t2">формы считаются сами</span></span></div>
+        <div class="t"><span class="ic"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span><b data-i18n="h_t3b">API КГД</b><br><span data-i18n="h_t3">сдача в один клик</span></span></div>
       </div>
     </div>
 
@@ -312,7 +320,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
       <img class="hero-coins" src="assets/il_coins.webp" alt="">
       <div class="mock-anno"><span data-i18n="h_anno">считает сам</span></div>
       <div class="app">
-        <div class="app-bar"><div class="dots"><i style="background:#ff6058"></i><i style="background:#ffbe2f"></i><i style="background:#2aca44"></i></div><div class="url">🔒 app.esep.kz</div></div>
+        <div class="app-bar"><div class="dots"><i style="background:#ff6058"></i><i style="background:#ffbe2f"></i><i style="background:#2aca44"></i></div><div class="url"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:3px"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>app.esep.kz</div></div>
         <div class="app-body">
           <aside class="app-side">
             <div class="sb-logo"><span class="m"></span>esep</div>
@@ -363,11 +371,11 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
         <div class="txt"><div class="stat-big">89%</div><h4 data-i18n="p1h">предпринимателей до сих пор без нормальных цифровых инструментов</h4><p data-i18n="p1p">Почти все понимают, что без автоматизации не вытянуть. А пользуются ей единицы — между «надо» и «делаю» огромная пропасть.</p></div>
         <img src="assets/il_phone.webp" alt="">
       </div>
-      <div class="pcard sm rv"><div class="pic">⚠️</div><h4 data-i18n="p2h">Сбои в ИСНА и ЭСФ</h4><p data-i18n="p2p">Ложные долги, заблокированные счета, e-Tamga не даёт выписать ЭСФ без предоплаты НДС.</p></div>
-      <div class="pcard sm3 rv"><div class="pic">📚</div><h4 data-i18n="p3h">Кодекс меняется быстрее, чем успеваешь читать</h4><p data-i18n="p3p">Порог по НДС опустили до 43,25 млн ₸, ИПН стал прогрессивным, появились новые ставки и авансы.</p></div>
-      <div class="pcard sm rv"><div class="pic">🧩</div><h4 data-i18n="p4h">Данные живут в пяти местах</h4><p data-i18n="p4p">1С, Kaspi, Excel, WhatsApp, кабинет КГД, ИС МПТ — и всё это вы переписываете руками по нескольку раз.</p></div>
-      <div class="pcard sm3 rv"><div class="pic">🗄️</div><h4 data-i18n="p5h">1С, которому лет десять</h4><p data-i18n="p5p">Казахстанские сборки на старых базах, ошибки годами висят, а внедрение стоит как машина.</p></div>
-      <div class="pcard sm rv"><div class="pic">🏷️</div><h4 data-i18n="p6h">Маркировка добралась до всех</h4><p data-i18n="p6p">С 2026 — пиво, масла, одежда. Каждый шаг отмечай в ИС МПТ. Розница к этому не готова.</p></div>
+      <div class="pcard sm rv"><div class="pic"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><h4 data-i18n="p2h">Сбои в ИСНА и ЭСФ</h4><p data-i18n="p2p">Ложные долги, заблокированные счета, e-Tamga не даёт выписать ЭСФ без предоплаты НДС.</p></div>
+      <div class="pcard sm3 rv"><div class="pic"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div><h4 data-i18n="p3h">Кодекс меняется быстрее, чем успеваешь читать</h4><p data-i18n="p3p">Порог по НДС опустили до 43,25 млн ₸, ИПН стал прогрессивным, появились новые ставки и авансы.</p></div>
+      <div class="pcard sm rv"><div class="pic"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div><h4 data-i18n="p4h">Данные живут в пяти местах</h4><p data-i18n="p4p">1С, Kaspi, Excel, WhatsApp, кабинет КГД, ИС МПТ — и всё это вы переписываете руками по нескольку раз.</p></div>
+      <div class="pcard sm3 rv"><div class="pic"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h4 data-i18n="p5h">1С, которому лет десять</h4><p data-i18n="p5p">Казахстанские сборки на старых базах, ошибки годами висят, а внедрение стоит как машина.</p></div>
+      <div class="pcard sm rv"><div class="pic"><svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><h4 data-i18n="p6h">Маркировка добралась до всех</h4><p data-i18n="p6p">С 2026 — пиво, масла, одежда. Каждый шаг отмечай в ИС МПТ. Розница к этому не готова.</p></div>
     </div>
   </div>
 </section>
@@ -385,9 +393,9 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
         <h3 style="color:#fff;font-size:26px" data-i18n="f_core_h">Все формы заполняются сами</h3>
         <p data-i18n="f_core_p">Esep разносит банковские операции и собирает готовые отчёты. Вы проверяете цифры и отправляете в один клик — без 1С и Excel.</p>
         <ul class="flist">
-          <li><span class="ck">✓</span><span data-i18n="f_core_l1">Формы 910, 100 (КПН), 300 (НДС) и 200 (ИПН)</span></li>
-          <li><span class="ck">✓</span><span data-i18n="f_core_l2">ИПН, соцналог, ВОСМС, ОПВ и авансы по КПН — посчитаны</span></li>
-          <li><span class="ck">✓</span><span data-i18n="f_core_l3">Отправка через API КГД и контроль всех сроков</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="f_core_l1">Формы 910, 100 (КПН), 300 (НДС) и 200 (ИПН)</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="f_core_l2">ИПН, соцналог, ВОСМС, ОПВ и авансы по КПН — посчитаны</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="f_core_l3">Отправка через API КГД и контроль всех сроков</span></li>
         </ul>
         <div class="forms"><span>ф.910</span><span>ф.100</span><span>ф.300</span><span>ф.200</span><span>ИПН</span><span data-i18n="f_socn">соцналог</span><span>ВОСМС</span><span>ОПВ</span></div>
         <!-- illustration removed -->
@@ -412,12 +420,12 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
         <h3 data-i18n="f_intg_h">Банки и маркетплейсы</h3>
         <p data-i18n="f_intg_p">Обороты подтягиваются сами. Никаких выгрузок и копипаста в Excel.</p>
         <div class="intg-logos">
-          <div class="il"><span class="sq" style="background:#f14635">K</span>Kaspi</div>
-          <div class="il"><span class="sq" style="background:#00a04a">H</span>Halyk</div>
-          <div class="il"><span class="sq" style="background:#7c2d8b">B</span>BCC</div>
-          <div class="il"><span class="sq" style="background:#0a8597">F</span>Forte</div>
-          <div class="il"><span class="sq" style="background:#7b2ff0">W</span>Wildberries</div>
-          <div class="il"><span class="sq" style="background:#005bff">O</span>Ozon</div>
+          <div class="il"><img class="sq-logo" src="assets/logo_kaspi.webp" alt="Kaspi">Kaspi</div>
+          <div class="il"><img class="sq-logo" src="assets/logo_halyk.webp" alt="Halyk">Halyk</div>
+          <div class="il"><img class="sq-logo" src="assets/logo_bcc.webp" alt="BCC">BCC</div>
+          <div class="il"><img class="sq-logo" src="assets/logo_forte.webp" alt="Forte">Forte</div>
+          <div class="il"><img class="sq-logo" src="assets/logo_wb.webp" alt="Wildberries">Wildberries</div>
+          <div class="il"><img class="sq-logo" src="assets/logo_ozon.webp" alt="Ozon">Ozon</div>
         </div>
       </div>
       <div class="bcard lang rv">
@@ -476,10 +484,10 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
         <div class="td" data-i18n="t1d">Для ИП на упрощёнке, которым нужна отчётность без нервов.</div>
         <div class="price">14 900<small> ₸/<span data-i18n="mo">мес</span></small></div>
         <ul>
-          <li><span class="ck">✓</span><span data-i18n="t1l1">Форма 910 автоматически</span></li>
-          <li><span class="ck">✓</span><span data-i18n="t1l2">1 банк (Kaspi / Halyk / BCC)</span></li>
-          <li><span class="ck">✓</span><span data-i18n="t1l3">Ассистент и напоминания о сроках</span></li>
-          <li><span class="ck">✓</span><span data-i18n="t1l4">Сдача через API КГД</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t1l1">Форма 910 автоматически</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t1l2">1 банк (Kaspi / Halyk / BCC)</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t1l3">Ассистент и напоминания о сроках</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t1l4">Сдача через API КГД</span></li>
         </ul>
         <a class="btn btn-ghost" href="#waitlist" data-i18n="choose">Выбрать</a>
       </div>
@@ -489,11 +497,11 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
         <div class="td" data-i18n="t2d">Для растущих ИП и ТОО с НДС, ЭСФ и парой счетов.</div>
         <div class="price">39 900<small> ₸/<span data-i18n="mo">мес</span></small></div>
         <ul>
-          <li><span class="ck">✓</span><span data-i18n="t2l1">Всё из «Базового»</span></li>
-          <li><span class="ck">✓</span><span data-i18n="t2l2">Формы 100, 300, 200 и зарплатные налоги</span></li>
-          <li><span class="ck">✓</span><span data-i18n="t2l3">ЭСФ и контроль e-Tamga</span></li>
-          <li><span class="ck">✓</span><span data-i18n="t2l4">До 3 банков + маркетплейсы</span></li>
-          <li><span class="ck">✓</span><span data-i18n="t2l5">Экспорт в 1С</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t2l1">Всё из «Базового»</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t2l2">Формы 100, 300, 200 и зарплатные налоги</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t2l3">ЭСФ и контроль e-Tamga</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t2l4">До 3 банков + маркетплейсы</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t2l5">Экспорт в 1С</span></li>
         </ul>
         <a class="btn btn-brand" href="#waitlist" data-i18n="choose">Выбрать</a>
       </div>
@@ -502,11 +510,11 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
         <div class="td" data-i18n="t3d">Для тех, у кого маркировка, склад и бухгалтер в штате.</div>
         <div class="price">89 900<small> ₸/<span data-i18n="mo">мес</span></small></div>
         <ul>
-          <li><span class="ck">✓</span><span data-i18n="t3l1">Всё из «Бизнеса»</span></li>
-          <li><span class="ck">✓</span><span data-i18n="t3l2">Маркировка и ИС МПТ</span></li>
-          <li><span class="ck">✓</span><span data-i18n="t3l3">Мультикомпании и роли</span></li>
-          <li><span class="ck">✓</span><span data-i18n="t3l4">Приоритетная поддержка</span></li>
-          <li><span class="ck">✓</span><span data-i18n="t3l5">Персональный онбординг</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t3l1">Всё из «Бизнеса»</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t3l2">Маркировка и ИС МПТ</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t3l3">Мультикомпании и роли</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t3l4">Приоритетная поддержка</span></li>
+          <li><span class="ck"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span data-i18n="t3l5">Персональный онбординг</span></li>
         </ul>
         <a class="btn btn-ghost" href="#waitlist" data-i18n="choose">Выбрать</a>
       </div>
@@ -521,11 +529,11 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
       <h2 data-i18n="q_h2">Коротко о главном</h2>
     </div>
     <div class="faq rv">
-      <details class="qa" open><summary><span data-i18n="q1">Это безопасно? Вы получаете доступ к моим деньгам?</span><span class="pm">+</span></summary><div class="ans" data-i18n="a1">Esep подключается к банку через Open Banking только на чтение транзакций — переводить деньги или списывать средства платформа не может. Данные шифруются, доступ можно отозвать в один клик.</div></details>
-      <details class="qa"><summary><span data-i18n="q2">Какие формы и налоги Esep считает?</span><span class="pm">+</span></summary><div class="ans" data-i18n="a2">Формы 910, 100 (КПН), 300 (НДС), 200 (ИПН), а также ИПН, соцналог, ВОСМС, ОПВ и авансы по КПН. Отчёты подаются через API КГД, дедлайны отслеживаются автоматически.</div></details>
-      <details class="qa"><summary><span data-i18n="q3">Мне всё ещё нужен бухгалтер?</span><span class="pm">+</span></summary><div class="ans" data-i18n="a3">Для большинства ИП и небольших ТОО — нет. Esep закрывает рутину: расчёты, формы, ЭСФ, дедлайны. Если бухгалтер есть, Esep экономит ему часы и выгружает данные в 1С.</div></details>
-      <details class="qa"><summary><span data-i18n="q4">С какими банками и системами работает Esep?</span><span class="pm">+</span></summary><div class="ans" data-i18n="a4">Kaspi, Halyk, BCC и Forte через Open Banking, маркетплейсы Kaspi Магазин, Wildberries KZ и Ozon KZ, онлайн-кассы с ОФД, ЕСУТД и ИС МПТ. Список интеграций расширяется.</div></details>
-      <details class="qa"><summary><span data-i18n="q5">На каком языке работает сервис?</span><span class="pm">+</span></summary><div class="ans" data-i18n="a5">Полностью на русском и казахском — и интерфейс, и AI-ассистент. Переключайтесь в любой момент.</div></details>
+      <div class="qa"><button><span data-i18n="q1">Это безопасно? Вы получаете доступ к моим деньгам?</span><span class="ar">+</span></button><div class="ans"><p data-i18n="a1">Esep подключается к банку через Open Banking только на чтение транзакций — переводить деньги или списывать средства платформа не может. Данные шифруются, доступ можно отозвать в один клик.</p></div></div>
+      <div class="qa"><button><span data-i18n="q2">Какие формы и налоги Esep считает?</span><span class="ar">+</span></button><div class="ans"><p data-i18n="a2">Формы 910, 100 (КПН), 300 (НДС), 200 (ИПН), а также ИПН, соцналог, ВОСМС, ОПВ и авансы по КПН. Отчёты подаются через API КГД, дедлайны отслеживаются автоматически.</p></div></div>
+      <div class="qa"><button><span data-i18n="q3">Мне всё ещё нужен бухгалтер?</span><span class="ar">+</span></button><div class="ans"><p data-i18n="a3">Для большинства ИП и небольших ТОО — нет. Esep закрывает рутину: расчёты, формы, ЭСФ, дедлайны. Если бухгалтер есть, Esep экономит ему часы и выгружает данные в 1С.</p></div></div>
+      <div class="qa"><button><span data-i18n="q4">С какими банками и системами работает Esep?</span><span class="ar">+</span></button><div class="ans"><p data-i18n="a4">Kaspi, Halyk, BCC и Forte через Open Banking, маркетплейсы Kaspi Магазин, Wildberries KZ и Ozon KZ, онлайн-кассы с ОФД, ЕСУТД и ИС МПТ. Список интеграций расширяется.</p></div></div>
+      <div class="qa"><button><span data-i18n="q5">На каком языке работает сервис?</span><span class="ar">+</span></button><div class="ans"><p data-i18n="a5">Полностью на русском и казахском — и интерфейс, и AI-ассистент. Переключайтесь в любой момент.</p></div></div>
     </div>
   </div>
 </section>
@@ -542,7 +550,7 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
           <button class="btn btn-brand" type="submit" data-i18n="w_btn">Записаться →</button>
         </form>
         <div class="fine" data-i18n="w_fine">Без спама. Напишем только когда откроем доступ. esep.kz</div>
-        <div class="hand" data-i18n="w_hand">налоги — это не ваша работа ✦</div>
+        <div class="hand" data-i18n="w_hand">налоги — это не ваша работа <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M8 0l2.35 5.65L16 8l-5.65 2.35L8 16l-2.35-5.65L0 8l5.65-2.35z"/></svg></div>
       </div>
     </div>
   </div>
@@ -567,9 +575,24 @@ footer{padding:64px 0 40px;border-top:1px solid var(--line);margin-top:96px}
 const hdr=document.getElementById('hdr');
 addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>10));
 
-const logos=[['Kaspi','#f14635','K'],['Halyk','#00a04a','H'],['BCC','#7c2d8b','B'],['Forte','#0a8597','F'],['КГД','#0b1a24','К'],['Kaspi Магазин','#f14635','K'],['Wildberries KZ','#7b2ff0','W'],['Ozon KZ','#005bff','O'],['ИС МПТ','#1aa86a','М'],['ОФД','#f5b53d','Ф'],['ЕСУТД','#0a8597','Е']];
+const logos=[
+  ['Kaspi',null,'assets/logo_kaspi.webp'],
+  ['Halyk',null,'assets/logo_halyk.webp'],
+  ['BCC',null,'assets/logo_bcc.webp'],
+  ['Forte',null,'assets/logo_forte.webp'],
+  ['КГД','#0b1a24','К'],
+  ['Kaspi Магазин',null,'assets/logo_kaspi.webp'],
+  ['Wildberries KZ',null,'assets/logo_wb.webp'],
+  ['Ozon KZ',null,'assets/logo_ozon.webp'],
+  ['ИС МПТ','#1aa86a','М'],
+  ['ОФД','#f5b53d','Ф'],
+  ['ЕСУТД','#0a8597','Е']
+];
 const track=document.getElementById('logoTrack');
-const make=()=>logos.map(([n,c,l])=>`<div class="chip"><span class="sq" style="background:${c}">${l}</span><span>${n}</span></div>`).join('');
+const make=()=>logos.map(([n,c,l])=>{
+  const icon=c?`<span class="sq" style="background:${c}">${l}</span>`:`<img class="sq-logo" src="${l}" alt="${n}">`;
+  return `<div class="chip">${icon}<span>${n}</span></div>`;
+}).join('');
 track.innerHTML=make()+make();
 
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
@@ -637,7 +660,7 @@ const KZ={
   q4:"Esep қандай банктермен және жүйелермен жұмыс істейді?",a4:"Kaspi, Halyk, BCC және Forte — Open Banking арқылы, Kaspi Магазин, Wildberries KZ және Ozon KZ маркетплейстері, ОФД-мен онлайн кассалар, ЕСУТД және ИС МПТ. Интеграциялар тізімі кеңейіп жатыр.",
   q5:"Сервис қай тілде жұмыс істейді?",a5:"Толығымен орысша және қазақша — интерфейс те, AI-көмекші де. Кез келген уақытта ауыстыра аласыз.",
   w_eye:"Ерте қол жеткізу",w_h2:"Күту тізімінен орын алыңыз",w_p:"Алғашқы 100 кәсіпкерге — 3 ай тегін және жеке онбординг. Орнына адал пікір сұраймыз.",
-  w_ph:"E-mail немесе телефон",w_btn:"Тіркелу →",w_fine:"Спамсыз. Тек қол жеткізу ашылғанда жазамыз. esep.kz",w_hand:"салық — сіздің жұмысыңыз емес ✦",
+  w_ph:"E-mail немесе телефон",w_btn:"Тіркелу →",w_fine:"Спамсыз. Тек қол жеткізу ашылғанда жазамыз. esep.kz",w_hand:"салық — сіздің жұмысыңыз емес <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="display:inline-block;vertical-align:middle"><path d="M8 0l2.35 5.65L16 8l-5.65 2.35L8 16l-2.35-5.65L0 8l5.65-2.35z"/></svg>",
   ft_ab:"Қазақстандағы бизнес-есептілікке арналған AI-автопилот. Салық, ЭСФ, бухгалтерия және таңбалау — бір платформада.",
   ft_c1:"Өнім",ft_intg:"Интеграциялар",ft_c2:"Компания",ft_about:"Біз туралы",ft_contact:"Байланыс",
   ft_c3:"Қолдау",ft_sec:"Қауіпсіздік",ft_docs:"Құжаттама",
@@ -654,9 +677,44 @@ function apply(lang){
   document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.dataset.i18nPh; const v=lang==='kz'?KZ[k]:RU['__ph_'+k]; if(v!=null) el.placeholder=v;});
   document.documentElement.lang=lang;
   document.querySelectorAll('.lang span').forEach(s=>s.classList.toggle('on',s.dataset.lang===lang));
+  goldYo();
 }
 snapshotRU();
 document.querySelectorAll('.lang span').forEach(s=>s.addEventListener('click',()=>apply(s.dataset.lang)));
+
+// FAQ accordion (relay-style)
+document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()=>{
+  const qa=b.parentElement,ans=qa.querySelector('.ans'),isOpen=qa.classList.contains('open');
+  document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');const a=x.querySelector('.ans');if(a)a.style.maxHeight=null;});
+  if(!isOpen){qa.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+}));
+
+// Yellow dots on ё
+function goldYo(root){
+  if(!root)root=document.body;
+  const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  const nodes=[];
+  while(walk.nextNode())nodes.push(walk.currentNode);
+  nodes.forEach(n=>{
+    if(!/[ёЁ]/.test(n.textContent))return;
+    if(n.parentElement&&n.parentElement.classList.contains('yo'))return;
+    const parts=n.textContent.split(/([ёЁ])/);
+    if(parts.length<2)return;
+    const frag=document.createDocumentFragment();
+    parts.forEach(p=>{
+      if(p==='ё'||p==='Ё'){
+        const s=document.createElement('span');
+        s.className='yo';
+        s.textContent=p==='ё'?'е':'Е';
+        frag.appendChild(s);
+      }else if(p){
+        frag.appendChild(document.createTextNode(p));
+      }
+    });
+    n.parentNode.replaceChild(frag,n);
+  });
+}
+goldYo();
 </script>
 </body>
 </html>
