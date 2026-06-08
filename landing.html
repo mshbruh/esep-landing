@@ -698,6 +698,7 @@ document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()
 function goldYo(root){
   if(!root)root=document.body;
   document.querySelectorAll('.yo,.yi').forEach(s=>{s.replaceWith(document.createTextNode(s.textContent))});
+  root.querySelectorAll('span[style*="display:inline"]').forEach(w=>{while(w.firstChild)w.parentNode.insertBefore(w.firstChild,w);w.remove();});
   const walk=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement&&(n.parentElement.tagName==='SCRIPT'||n.parentElement.tagName==='STYLE')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
   const nodes=[];
   while(walk.nextNode())nodes.push(walk.currentNode);
@@ -707,13 +708,13 @@ function goldYo(root){
     if(n.parentElement&&(n.parentElement.classList.contains('yo')||n.parentElement.classList.contains('yi')))return;
     const parts=n.textContent.split(/([ёЁіІ])/);
     if(parts.length<2)return;
-    const frag=document.createDocumentFragment();
+    const wrap=document.createElement('span');wrap.style.cssText='display:inline;margin:0;padding:0';
     parts.forEach(p=>{
-      if(yoMap[p]){const s=document.createElement('span');s.className='yo';s.textContent=yoMap[p];frag.appendChild(s);}
-      else if(p==='і'||p==='І'){const s=document.createElement('span');s.className='yi';s.textContent=p;frag.appendChild(s);}
-      else if(p){frag.appendChild(document.createTextNode(p));}
+      if(yoMap[p]){const s=document.createElement('span');s.className='yo';s.textContent=yoMap[p];wrap.appendChild(s);}
+      else if(p==='і'||p==='І'){const s=document.createElement('span');s.className='yi';s.textContent=p;wrap.appendChild(s);}
+      else if(p){wrap.appendChild(document.createTextNode(p));}
     });
-    n.parentNode.replaceChild(frag,n);
+    n.parentNode.replaceChild(wrap,n);
   });
 }
 goldYo();
